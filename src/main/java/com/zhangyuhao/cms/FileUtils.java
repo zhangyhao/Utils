@@ -8,10 +8,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.codec.digest.DigestUtils;
+
+
 
 public class FileUtils {
 
@@ -163,6 +167,37 @@ public class FileUtils {
 		closeStream(br,fis);
 		
 		return sb.toString();
+	}
+	
+	
+	/**
+	 * 
+	 * @param file
+	 * @return
+	 * @throws IOException 
+	 */
+	public static List<String> readByLines(String fileName) throws IOException {
+		
+		//用于存储文件内容
+		List<String> lines = new ArrayList();
+		
+		// 创建文件对象
+		File file = new File(fileName);
+		
+		//创建文件输入流
+		FileInputStream fis = new FileInputStream(file);
+		// 创建缓冲流
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis,"UTF-8"));
+		String ln=null;
+		//按行读入
+		while ((ln= br.readLine())!=null) {
+			//sb.append(ln);
+			lines.add(ln);
+		}
+		
+		closeStream(br,fis);
+		
+		return lines;
 	}
 	
 	/**

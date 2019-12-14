@@ -121,4 +121,17 @@ public class StringUtils {
 		Matcher matcher = compile.matcher(str);
 		return matcher.matches();
 	}
+	/**
+	 * 测试是否是手机号
+	 * @param str
+	 * @return
+	 */
+	public static boolean judgeTelephoneIsOk(String str){
+		String regex = "^(1)\\d{10}$";
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(str);
+		boolean find = matcher.find();
+		return find;
+	}
+	
 }

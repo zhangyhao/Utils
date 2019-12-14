@@ -6,7 +6,7 @@ public class FileUtilsTest {
 
 	/**
 	 * 测试文件的工具类
-	 */
+	 *//*
 	@Test
 	public void testGetSuffix(){
 		String suffixName = FileUtils.getSuffixName("D:\\学习内容\\Git\\unins000.dat");
@@ -14,9 +14,9 @@ public class FileUtilsTest {
 	}
 	
 	
-	/**
+	*//**
 	 * 删除目录
-	 */
+	 *//*
 	@Test
 	public void testDelFile(){
 		FileUtils.deFile("D:\\02");
@@ -38,6 +38,6 @@ public class FileUtilsTest {
 		long size = FileUtils.getSize("D:\\01\\01.txt");
 		System.out.println(size);
 	}
-	
+	*/
 	
 }

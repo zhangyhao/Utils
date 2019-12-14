@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class TestStringUtils {
 
-	static StringUtils stringUtils;
+	/*static StringUtils stringUtils;
 	
 	@Before
 	public void init(){
@@ -109,5 +109,5 @@ public class TestStringUtils {
 	public void testGetDay(){
 		Date date = DateUtils.getBeginOfMonth();
 		System.out.println("beginOfMonth is"+date);
-	}
+	}*/
 }

@@ -78,7 +78,12 @@ public class StringUtils {
 		}
 		return sb.toString();
 	}
-	
+	/**
+	 * 随机中文字符
+	 * @param n
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
 	public static String getGb2312(int n) throws UnsupportedEncodingException{
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < n; i++) {
@@ -109,6 +114,20 @@ public class StringUtils {
 		boolean find = matcher.find();
 		return find;
 	}
+	
+	/**
+	 * 不能包含数字
+	 * @param str
+	 * @return
+	 */
+	public static boolean isChar(String str) {
+		String regex = "\\d{1,}";
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(str);
+		boolean find = matcher.find();
+		return !find;
+	}
+	
 	/**
 	 * 判断邮箱
 	 * @param str
@@ -132,6 +151,31 @@ public class StringUtils {
 		Matcher matcher = compile.matcher(str);
 		boolean find = matcher.find();
 		return find;
+	}
+	
+	
+	/**
+	 * 验证是否是URL
+	 * @param url
+	 * @return
+	 */
+	public static boolean isHttpUrl(String str){
+		
+		 //转换为小写
+        str = str.toLowerCase();
+        String regex = "^((https|http|ftp|rtsp|mms)?://)"  //https、http、ftp、rtsp、mms
+                + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@  
+               + "(([0-9]{1,3}\\.){3}[0-9]{1,3}" // IP形式的URL- 例如：199.194.52.184               
+                 + "|" // 允许IP和DOMAIN（域名） 或单域名
+                 + "[0-9a-z]*"  // 或单域名
+                 + "|" // 允许IP和DOMAIN（域名） 或单域名
+                 + "([0-9a-z_!~*'()-]+\\.)*" // 域名- www.  
+                 + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." // 二级域名  
+                + "[a-z]{2,6})" // first level domain- .com or .museum  
+                + "(:[0-9]{1,5})?" // 端口号最大为65535,5位数
+                + "((/?)|" // a slash isn't required if there is no file name  
+                + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";  
+        return  str.matches(regex);	
 	}
 	
 }
